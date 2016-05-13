@@ -7,8 +7,14 @@ soup = BeautifulSoup(text);
 
 data = soup.findAll('div',attrs={'class':'tileContent'});
 
-noticias=[]
+links=[]
 for div in data:
-    links = div.findAll('a')
-    for a in links:
-        noticias.append(a['href'])
+    Tag_a = div.findAll('a')
+    for a in Tag_a:
+    	temp = a['href'].split('/')
+    	for i in temp:
+    		if i=='meio-ambiente':
+    			links.append(a['href'])
+
+
+
