@@ -19,6 +19,14 @@ def FindLinks(url,class_name,keywork=None):
             else:
                 links.append(a['href'])
     return links
+    
+def FindArticles(url,class_name,keywork=None):
+    url = url
+    text = urllib2.urlopen(url).read()
+    soup = BeautifulSoup(text)
+    data = soup.findAll('div',attrs={'property':'rnews:articleBody'})
+    textopuro = data[0].getText()
+    return textopuro
 
 url = "http://www.brasil.gov.br/meio-ambiente/ultimas-noticias-meio-ambiente"
 class_name = 'tileContent'
