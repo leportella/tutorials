@@ -1,20 +1,27 @@
 import urllib2
 from BeautifulSoup import BeautifulSoup
 
+def FindLinks(url,class_name,keywork=None):
+    url = url
+    text = urllib2.urlopen(url).read()
+    soup = BeautifulSoup(text)
+    data = soup.findAll('div',attrs={'class':class_name})
+
+    links=[]
+    for div in data:
+        Tag_a = div.findAll('a')
+        for a in Tag_a:
+            temp = a['href'].split('/')
+            if keywork:
+                for i in temp:
+                    if i==keyword:
+                        links.append(a['href'])
+            else:
+                links.append(a['href'])
+    return links
+
 url = "http://www.brasil.gov.br/meio-ambiente/ultimas-noticias-meio-ambiente"
-text = urllib2.urlopen(url).read();
-soup = BeautifulSoup(text);
-
-data = soup.findAll('div',attrs={'class':'tileContent'});
-
-links=[]
-for div in data:
-    Tag_a = div.findAll('a')
-    for a in Tag_a:
-    	temp = a['href'].split('/')
-    	for i in temp:
-    		if i=='meio-ambiente':
-    			links.append(a['href'])
-
-
+class_name = 'tileContent'
+keyword = 'meio-ambiente'
+links = FindLinks(url,class_name,keyword)
 
