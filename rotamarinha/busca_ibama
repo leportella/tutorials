@@ -20,7 +20,7 @@ def FindLinks(url,class_name,keywork=None):
                 links.append(a['href'])
     return links
     
-def FindArticles(url,class_name,keywork=None):
+def FindArticles(url):
     url = url
     text = urllib2.urlopen(url).read()
     soup = BeautifulSoup(text)
@@ -32,4 +32,7 @@ url = "http://www.brasil.gov.br/meio-ambiente/ultimas-noticias-meio-ambiente"
 class_name = 'tileContent'
 keyword = 'meio-ambiente'
 links = FindLinks(url,class_name,keyword)
+
+url2 = "http://www.brasil.gov.br/meio-ambiente/2016/05/plano-nacional-de-adaptacao-a-mudanca-do-clima-e-lancado"
+textopuro = FindArticles(url2)
 
