@@ -1,0 +1,14 @@
+import urllib2
+from BeautifulSoup import BeautifulSoup
+
+url = "http://www.brasil.gov.br/meio-ambiente/ultimas-noticias-meio-ambiente"
+text = urllib2.urlopen(url).read();
+soup = BeautifulSoup(text);
+
+data = soup.findAll('div',attrs={'class':'tileContent'});
+
+noticias=[]
+for div in data:
+    links = div.findAll('a')
+    for a in links:
+        noticias.append(a['href'])
