@@ -36,3 +36,4 @@ links = FindLinks(url,class_name,keyword)
 url2 = "http://www.brasil.gov.br/meio-ambiente/2016/05/plano-nacional-de-adaptacao-a-mudanca-do-clima-e-lancado"
 textopuro = FindArticles(url2)
 
+'ação' in textopuro.encode('utf-8')
