@@ -7,7 +7,7 @@ import urllib2
 from BeautifulSoup import BeautifulSoup
 
 
-def FindLinks(url,class_name,url_keyword=None):
+def FindLinks(url, class_name, url_keyword=None):
     url = url
     text = urllib2.urlopen(url).read()
     soup = BeautifulSoup(text)
