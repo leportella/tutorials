@@ -1,0 +1,88 @@
+
+body{
+	color: blue; /* ou #ddd */
+	font-family: Helvetica, Arial, sans-serif;
+	padding-bottom: 100px;
+}
+
+a{
+	color: green;
+}
+
+.header{
+	background: white;
+	height: 80px;
+	box-shadow: 0 3px 4px rgba(0,0,0,.3);
+}
+
+.mainlogo{
+	margin: 0 10px 0 0 ; /* top, right, bottom, left */
+	display: inline-block;
+	float:left; 
+}
+
+.menu{
+	float: left;
+}
+
+.menu ul{
+	padding: 0;
+}
+
+.menu li{
+	display: inline-block; 
+	vertical-align: top;
+}
+
+.menu a {
+	text-transform: uppercase;
+	margin: 0 10px 0 0 ; /* top, right, bottom, left */
+}
+
+.bg {
+	max-height: 450px; 	/* limita tamanho maximo da figura */
+	overflow: hidden;	/* diz que o excesso será escondido */
+	position: relative;
+}
+
+.featured-title{
+	position: absolute;
+	width: 110%;
+	top: 25px;
+	color: white;
+	text-align: center;
+}
+
+.featured-title h1{
+	font-size: 35px;
+	color:blue;
+}
+
+.featured-title span{
+	font-size:14px;
+}
+
+.content{
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+form{
+	max-width: 350px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+form label{
+	width: 100px;
+	display: inline-block;
+	text-align: right;
+}
+
+form legend{
+	font-size:20px;
+}
+
+form .input-group{
+	margin-bottom: 15px;
+}
