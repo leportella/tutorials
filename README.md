@@ -1,5 +1,5 @@
 # tutorials
-All scripts I've doing in tutorials, tests and studies...
+All scripts I've being doing in tutorials, tests and studies...
 
 /front 
 
