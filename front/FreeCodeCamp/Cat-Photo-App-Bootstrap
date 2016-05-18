@@ -1,0 +1,128 @@
+<!-- FIRST HTML + CSS + BOOTSTRAP TEACHED BY FREECODECAMP -->
+<!-- developed initually for mobile -->
+
+<!-- insert bootstrap design -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- insert Font Awesome -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+<!-- Link to add a new font-style -->
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+<!-- The CSS styling -->
+<!-- You can style all tags of h2 and p -->
+<!-- Use . to style classes -->
+<style>
+	
+	h2 {
+	font-family: Lobster, Monospace;
+	}
+
+	.thick-green-border {
+	border-color: green;
+	border-width: 5px;
+	border-style: solid;
+	border-radius: 50%;
+	}
+   
+</style>
+
+<!-- The class container-fluid (BS) is necessary for using bootstrap-->
+<div class="container-fluid">
+
+
+	<!-- group h2 and img in the same line -->
+	<div class="row">  
+    	<div class="col-xs-8">
+    		<!-- The class text-center (BS) centralizes the text and text-primary changes to the color scheme -->
+      		<h2 class="text-primary text-center">CatPhotoApp</h2>
+    	</div>
+    	<div class="col-xs-4">
+    		<a href="#"><img class="img-responsive thick-green-border" src="https://bit.ly/fcc-relaxing-cat"></a>
+    	</div>  
+  	</div>
+
+	<!-- The class img-responsive (BS) make images become responsive-->
+	<img class="img-responsive" src="https://bit.ly/fcc-running-cats">
+
+	<!-- Inserting a responsive grid system with classes row and col applied to a div -->
+	<!-- xs means extra small and 4 means how many columsn wide the element should be -->
+	<div class="row">
+   		<div class="col-xs-4">
+
+			<!-- The class btn (BS) make the button becomes more "friendly" then the simple HTML button -->
+			<!-- btn makes the button just as large as the text they contain -->
+			<!-- btn-block will stretch to fill your page's entire horizontal space -->
+			<!-- btn-primary is the main color used in the app -->
+			<!-- i class can be used to add Font Awesome svg such as thumbs-up -->
+			<button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up"></i> Like</i></button>
+		</div>
+
+		<div class="col-xs-4">
+			<!-- btn-info is used to call attention to optional actions that the user can take -->
+			<button class="btn btn-block btn-info"><i class="fa fa-info-circle"></i> Info</button>
+		</div>
+
+		<div class="col-xs-4">
+			<!-- btn-danger is used to notify that it contains a destructive action -->
+			<button class="btn btn-block btn-danger"><i class="fa fa-trash"></i> Delete</button>
+		</div>
+	</div>
+
+	<div class="gray-background">
+		<!-- span tags help managing inline elements -->
+		<p>Things cats <span class="text-danger">love</span>:</p>
+		<!-- Unordered lists -->
+		<ul>
+			<li>cat nip</li>
+			<li>laser pointers</li>
+			<li>lasagna</li>
+		</ul>
+		<p>Top 3 things cats hate:</p>
+		<!-- Ordered lists -->
+		<ol>
+			<li>flea treatment</li>
+			<li>thunder</li>
+			<li>other cats</li>
+		</ol>
+	</div>
+
+	<!-- Types of form -->
+	<form action="/submit-cat-photo" id="cat-photo-form">
+		<div class="row">
+      		<div class="col-xs-6">
+				<!-- Radio buttons, the first one is the default checked option -->
+				<label><input type="radio" name="indoor-outdoor" checked> Indoor</label>
+			</div>
+			<div class="col-xs-6">
+				<label><input type="radio" name="indoor-outdoor"> Outdoor</label>
+			</div>
+		</div>
+
+		<div class="row">
+      		<div class="col-xs-4">
+				<!-- Checkbox buttons, the first one is the default checked option -->
+				<label><input type="checkbox" name="personality" checked> Loving</label>
+			</div>
+			<div class="col-xs-4">
+				<label><input type="checkbox" name="personality"> Lazy</label>
+			</div>
+			<div class="col-xs-4">
+				<label><input type="checkbox" name="personality"> Energetic</label>
+			</div>
+		</div>div>
+
+		<div class="row">
+    		<div class="col-xs-7">
+    		<!-- Input aread, is defined as a required -->
+        		<input type="text" class="form-control" placeholder="cat photo URL" required>
+      		</div>
+      		<div class="col-xs-5">
+      			<!-- Button to submit -->
+        		<button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i> Submit</button>
+      		</div>
+    	</div>
+    	
+	</form>
+</div>
