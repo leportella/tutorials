@@ -9,6 +9,6 @@ Some files extracted from FreeCodeCamp tutorials and some files made as a comple
   * Evolution from the tutorial
   * Includes: tables, head tag, more divs, palette of colors
  
-/Cat-Photo-App-Bootstrap
+/Cat-Photo-App-Bootstrap.html
   * Tutorial of HTML + CSS with Bootstrap
   * Includes: BS buttoms, responsive images, Font Awesome icons, responsive multicolumns 
