@@ -1,0 +1,112 @@
+<!-- FIRST HTML + CSS TEACHED BY FREECODECAMP -->
+
+<!-- Link to add a new font-style -->
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+<!-- The CSS styling -->
+<!-- You can style all tags of h2 and p -->
+<!-- Use . to style classes -->
+<!-- Use # to style ids -->
+<style>
+	body {
+		background-color: #bfd3d1;
+	}
+
+	h2 {
+	font-family: Lobster, Monospace;
+	color: #7ea5a4;
+	}
+
+	.text {
+	color: #312f2f;
+	font-size: 16px;
+	font-family: Lobster, 	Monospace;
+	}
+
+	.smaller-image {
+	width: 100px;
+	}
+
+	.thick-green-border {
+	border-color: #7ea5a4;
+	border-width: 10px;
+	border-style: solid;
+	border-radius: 50%;
+	}
+   
+</style>
+
+<!DOCTYPE html>
+<html>
+	
+	<!-- A head tag for changing the tab name in the browser-->
+	<head>
+		<title>My First HTML webpage</title>
+	</head>
+
+	<body>
+
+		<h2>CatPhotoApp</h2>
+
+		<p class="text">Click here for <a href="#">cat photos</a>.</p>
+
+		<!-- The class links the tag with the style -->
+		<!-- You alt key should describe the picture for blind people, for instance-->
+		<a href="#"><img class="smaller-image thick-green-border" alt="A cute orange cat lying on its back" src="https://bit.ly/fcc-relaxing-cat"></a>
+
+		<div>
+			<!-- Table -->
+			<table>
+				<tr>
+					<td>	
+						<p class="text">Things cats love:</p>
+						<!-- Unordered lists -->
+						<ul>
+							<li class="text">cat nip</li>
+							<li class="text">laser pointers</li>
+							<li class="text">lasagna</li>
+						</ul>
+					</td>
+					<td>			
+						<p class="text">Top 3 things cats hate:</p>
+						<!-- Ordered lists -->
+						<ol>
+							<li class="text">flea treatment</li>
+							<li class="text">thunder</li>
+							<li class="text">other cats</li>
+						</ol>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<h2> Add your cat! </h2>
+
+		<!-- Types of form -->
+		<form action="/submit-cat-photo">
+			<div>
+				<p class="text"> Where is its favorite place? </p>
+				<!-- Radio buttons, the first one is the default checked option -->
+				<label><input type="radio" name="indoor-outdoor" checked> Indoor</label>
+				<label><input type="radio" name="indoor-outdoor"> Outdoor</label>
+			</div>
+			<div>
+				<p class="text"> What about its personality? </p>
+				<!-- Checkbox buttons, the first one is the default checked option -->
+				<label><input type="checkbox" name="personality" checked> Loving</label>
+				<label><input type="checkbox" name="personality"> Lazy</label>
+				<label><input type="checkbox" name="personality"> Energetic</label>
+			</div>
+			<div>
+				<p class="text"> Include his photo! </p>
+				<!-- Input aread, is defined as a required -->
+				<input type="text" placeholder="cat photo URL" required>
+			</div>
+			<div>
+				<!-- Button to submit -->
+				<button type="submit">Submit</button>
+			</div>
+		</form>
+
+	</body>
+</html>
