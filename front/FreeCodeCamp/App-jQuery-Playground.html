@@ -27,6 +27,8 @@
         $("#target4").remove()  // remove elemento html
         // $("#target2").appendTo("#right-well"); // move o elemento html de div
         $("#target5").clone().appendTo("#left-well"); //copia o elemento e o coloca em outra div
+        $("#target1").parent().css("background-color", "red"); // define css para os parents do target1
+        $("#right-well").children().css("color","orange") // define css para os children do right-well
       });
     </script>
   </head>
