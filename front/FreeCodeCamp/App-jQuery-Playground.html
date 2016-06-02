@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- insert bootstrap design -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- Add jQuery from online font-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"> 
+    </script>
+
+    <!-- Animated css (not working) -->
+    <link rel="stylesheet" type="text/css" href="animate.css">
+
+    <!-- jQuery script-->
+    <script>
+      $(document).ready(function() {
+        // $("button").addClass("animated bounce"); // animacao 
+        // $(".well").addClass("animated shake"); // animacao
+        $("#target3").addClass("animate fadeOut"); // animacao que some com o botao
+
+        $("button").removeClass("btn-default"); // remocao de classes 
+        $("#target1").css("color", "red");  // insercao de classes css
+        $("#target1").prop("disabled","true"); // desabilitacao de botoes
+
+        $("h3").html("<em>jQuery Playground</em>") //altera html tags
+
+        $("#target4").remove()  // remove elemento html
+        // $("#target2").appendTo("#right-well"); // move o elemento html de div
+        $("#target5").clone().appendTo("#left-well"); //copia o elemento e o coloca em outra div
+        $("#target1").parent().css("background-color", "red"); // define css para os parents do target1
+        $("#right-well").children().css("color","orange") // define css para os children do right-well
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <h3 class="text-primary text-center">jQuery Playground</h3>
+      <div class="row">
+        <div class="col-xs-6">
+          <h4>#left-well</h4>
+          <div class="well" id="left-well">
+            <button class="btn btn-default target" id="target1">#target1</button>
+            <button class="btn btn-default target" id="target2">#target2</button>
+            <button class="btn btn-default target" id="target3">#target3</button>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <h4>#right-well</h4>
+          <div class="well" id="right-well">
+            <button class="btn btn-default target" id="target4">#target4</button>
+            <button class="btn btn-default target" id="target5">#target5</button>
+            <button class="btn btn-default target" id="target6">#target6</button>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+  </body>
+</html>
