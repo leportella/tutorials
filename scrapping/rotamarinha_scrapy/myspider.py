@@ -29,7 +29,6 @@ class BBCSpider(scrapy.Spider):
 
             #coloca dominio pros links proprios do site
             for url in urls:
-            	#print url
                 if url[0]=='/':
                     next_url = urljoin(self.start_urls[0], url)
                 else:
@@ -44,16 +43,13 @@ class BBCSpider(scrapy.Spider):
         #nem sempre as noticias estao nas mesmas divs...
         if not text:
             text = u''.join(response.css('div.story-body__inner p::text').extract())
-            print 'ok'
-
-        print text         
+        
         # verificar se existem tags relevantes na notícia
         tags = []
         for keyword in keywords:
             if keyword in text:
                 tags.append(keyword)
 
-        print tags
         #só salva notícias com mais de duas tags
         story = None
         if len(tags) > 2:
