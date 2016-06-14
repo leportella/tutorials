@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import scrapy
-from keywords import ocean_keywords as keywords
+from keywords import en_ocean_keywords as keywords
 from urlparse import urljoin
 
 # para rodar...
-# scrapy runspider top_asked_so_questions.py -t json -o results.json
+# scrapy runspider myspider.py -t json -o results.json
 
 class NewsItem(scrapy.Item):
     # define the fields for your item here like:
@@ -24,17 +24,18 @@ class BBCSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-            container = response.css("div.content")
-            urls = container.css("a[href*=story]::attr(href)").extract() #*= faz uma busca no css (contem)
+        container = response.css("div.content")
+        urls = container.css("a[href*=story]::attr(href)").extract() #*= faz uma busca no css (contem)
+        urls = urls + container.css("a[href*=news]::attr(href)").extract()
 
-            #coloca dominio pros links proprios do site
-            for url in urls:
-                if url[0]=='/':
-                    next_url = urljoin(self.start_urls[0], url)
-                else:
-                    next_url = url
+        #coloca dominio pros links proprios do site
+        for url in urls:
+            if url[0]=='/':
+                next_url = urljoin(self.start_urls[0], url)
+            else:
+                next_url = url
 
-                yield scrapy.Request(next_url, callback=self.parse_story)
+            yield scrapy.Request(next_url, callback=self.parse_story)
 
     def parse_story(self, response):
 
@@ -56,7 +57,7 @@ class BBCSpider(scrapy.Spider):
             story = NewsItem()
             story['url'] = response.url
             story['headline'] = response.xpath("//title/text()").extract()
-            story['body'] = text
             story['tags'] = tags
+            story['body'] = text
 
         return story

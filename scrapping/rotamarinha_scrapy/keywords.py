@@ -1,15 +1,36 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-ocean_keywords = [
-	u'algas',
-	u'clima',
+en_ocean_keywords = [
+	u'atmosphere',
 	u'climate change',
-	u'corais',
-	u'dessalinização',
-	u'El Nino',
-	u'gás carbônico',
+	u'coral',
+	u'CO2',
+	u'crustaceans',
+	u'El Niño',
 	u'global temperature',
+	u'Great Barrier Reef',
+	u'greenhouse gas',
+	u'Indian Ocean',
+	u'oceanographer',
+	u'oceanography',
+	u'Pacific Ocean',
+	u'sea temperature',
+	u'Submarine Canyon',
+	u'storm', 
+	u'zooxanthellae',
+]
+
+pt_ocean_keywords = [
+	u'algas',
+	u'atmofera',
+	u'clima',
+	u'mudança climática',
+	u'corais',
+	u'CO2',
+	u'dessalinização',
+	u'El Niño',
+	u'gás carbônico',
 	u'impacto ambiental',
 	u'mananciais subterrâneos',
 	u'meio ambiente',
@@ -21,6 +42,4 @@ ocean_keywords = [
 	u'praia',
 	u'unidades de conservação',
 	u'zona costeira',
-	u'floating',
-	u'storm', 
 ]
