@@ -1,15 +1,38 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import scrapy
-from keywords import en_ocean_keywords as keywords
-from urlparse import urljoin
+'''
+Create by: @leportella
 
-# para rodar...
-# scrapy runspider myspider.py -t json -o results.json
+Objective:
+Scrapy the BBC website, find news that have at least
+2 of the tags listed below and add their headline, body
+and url on a json.
+
+To run:
+$ scrapy runspider myspider.py -t json -o results.json
+'''
+
+import scrapy
+from urllib.parse import urljoin
+
+keywords = [
+    'Afghanistan',
+    'Africa',
+    'China',
+    'Europe',
+    'France',
+    'Japan',
+    'Syria',
+    'Trump',
+    'US',
+    'country',
+    'population',
+    'war',
+    'personality'
+]
 
 class NewsItem(scrapy.Item):
-    # define the fields for your item here like:
     headline = scrapy.Field()
     body = scrapy.Field()
     url = scrapy.Field()
@@ -25,12 +48,19 @@ class BBCSpider(scrapy.Spider):
 
     def parse(self, response):
         container = response.css("div.content")
-        urls = container.css("a[href*=story]::attr(href)").extract() #*= faz uma busca no css (contem)
-        urls = urls + container.css("a[href*=news]::attr(href)").extract()
 
-        #coloca dominio pros links proprios do site
+        # makes the search on the css for possible news links
+        types = ['story', 'news']
+
+        urls = []
+        for type in types:
+            urls += container.css(
+                'a[href*={}]::attr(href)'.format(type)
+            ).extract()
+
+        # some links need to add the bbc domain
         for url in urls:
-            if url[0]=='/':
+            if url[0] == '/':
                 next_url = urljoin(self.start_urls[0], url)
             else:
                 next_url = url
@@ -39,25 +69,28 @@ class BBCSpider(scrapy.Spider):
 
     def parse_story(self, response):
 
+        # get the text body
         text = u''.join(response.css('div.story-inner p::text').extract())
 
-        #nem sempre as noticias estao nas mesmas divs...
+        # texts are not always on the same div
         if not text:
-            text = u''.join(response.css('div.story-body__inner p::text').extract())
-        
-        # verificar se existem tags relevantes na notícia
+            text = u''.join(
+                response.css('div.story-body__inner p::text').extract()
+            )
+
+        # check if it can find tags on the text
         tags = []
         for keyword in keywords:
             if keyword in text:
                 tags.append(keyword)
 
-        #só salva notícias com mais de duas tags
+        # we define that only stores the news if there is at least
+        # 2 tags on the story
         story = None
         if len(tags) > 2:
             story = NewsItem()
             story['url'] = response.url
             story['headline'] = response.xpath("//title/text()").extract()
             story['tags'] = tags
-            story['body'] = text
 
         return story
