@@ -1,0 +1,16 @@
+.Eye {
+    height: 8px;
+    width: 8px;
+    background: white;
+    border-radius: 50%;
+}
+
+.PuppyEyes {
+    height: 4px;
+    width: 4px;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+    left: 30%;
+    top: 40%;
+}

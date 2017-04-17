@@ -1,0 +1,11 @@
+.Ear {
+    border-radius: 20%;
+    width: 3px;
+    height: 4px;
+    background: red;
+}
+
+.Left {
+    position: relative;
+    left: 5%;
+}

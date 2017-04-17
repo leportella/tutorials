@@ -1,0 +1,16 @@
+.Leg {
+    width: 5px;
+    height: 15px;
+    background: red;
+}
+
+.Left {
+    position: relative;
+    left: 5%;
+}
+
+
+.Right {
+    position: relative;
+    left: 8%;
+}
