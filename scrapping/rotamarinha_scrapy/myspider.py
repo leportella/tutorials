@@ -6,7 +6,7 @@ Create by: @leportella
 
 Objective:
 Scrapy the BBC website, find news that have at least
-2 of the tags listed below and add their headline, body
+2 of the tags listed below and add their headline, tags
 and url on a json.
 
 To run:
@@ -34,7 +34,6 @@ keywords = [
 
 class NewsItem(scrapy.Item):
     headline = scrapy.Field()
-    body = scrapy.Field()
     url = scrapy.Field()
     tags = scrapy.Field()
 
